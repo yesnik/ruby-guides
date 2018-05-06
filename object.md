@@ -238,6 +238,14 @@ a.frozen? #=> true
 [1, 2].frozen? #=> false
 ```
 
+### .try, &.
+
+kenny = nil
+kenny.hello #=> NameError (undefined method 'name' for nil:NilClass)
+kenny.try(:hello) #=> nil
+kenny&.hello #=> nil (new syntax for Ruby >= 2.3)
+
+
 ## Objects equality
 
 To apply uniq method to array of the same objects 
