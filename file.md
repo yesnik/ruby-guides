@@ -1,4 +1,9 @@
-# Files
+# File
+
+```ruby
+File.ancestors
+#=> [File, IO, File::Constants, Enumerable, Object, Kernel, BasicObject]
+```
 
 ## Write to file
 
