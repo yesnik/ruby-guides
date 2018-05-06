@@ -19,6 +19,12 @@ Integer.ancestors
 10 / 3 #=> 3
 10.0 / 3 #=> 3.3333333333333335
 
+2.times { puts 'hi' }
+#=> 2
+# Output:
+# hi
+# hi
+
 1.upto(3).class #=> Enumerator
 1.upto(3).map(&:to_i) #=> [1, 2, 3]
 3.downto(1).map(&:to_i) #=> [3, 2, 1]
