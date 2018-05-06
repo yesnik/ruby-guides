@@ -1,0 +1,115 @@
+# Hash
+
+```ruby
+h = Hash.new
+h.class #=> Hash
+h.size #=> 0
+```
+
+We need to use the arrow syntax whenever the key is not a symbol:
+
+```ruby
+{'kenny' => 20} #=> {"kenny"=>20}
+{'kenny': 20} #=> {:kenny=>20}
+{kenny: 20} #=> {:kenny=>20}
+
+{'joe doe' => 20} #=> {"joe doe"=>20}
+{:'joe doe' => 20} #=> {:"joe doe"=>20}
+{'joe doe': 20} #=> {:"joe doe"=>20}
+```
+
+### Array to hash
+
+```ruby
+arr = [['a', 1], ['b', 2]]
+p Hash[ arr ]
+#=> {"a"=>1, "b"=>2}
+```
+
+We can use asterisk `*` to convert plain array to arguments:
+
+```ruby
+arr = ['a', 11, 'b', 22]
+Hash[*arr] #=> {'a'=>11, 'b'=>22}
+
+arr2 = ['a', 11, 'b']
+Hash[*arr2] #=> ArgumentError: odd number of arguments for Hash
+
+[ ['a', 11], ['b', 22] ].to_h
+#=> {'a'=>11, 'b'=>22}
+```
+
+### Get hash elements
+
+```ruby
+h = {a: 1, b:2}
+h.size #=> 2
+h[:b] #=> 2
+h[:some_key] #=> nil
+h.fetch(:a) #=> 1
+h.fetch(:zzz, 'Kenny') #=> 'Kenny'
+
+h.keys #=> [:a, :b]
+h.values #=> [1, 2]
+```
+
+### Set hash elements
+
+```ruby
+h = {}
+h[:name] => 'Kenny'
+h #=> {:name=>'Kenny'}
+```
+
+### Default hash value
+
+```ruby
+h = Hash.new('Kenny')
+h[:some] #=> 'Kenny'
+
+h = Hash.new { |hash, key| hash[key] = [] }
+h[:a] = 11
+h[:b] << 22
+h[:c]
+h #=> {a: 11, b: [22], c: []}
+```
+
+### Modify default value
+
+```ruby
+h = Hash.new([])
+h[:one] << 'one' #=> ['one']
+h[:two] << 'two' #=> ['one', 'two']
+h #=> {}
+h[:zzz] #=> ['one', 'two']
+h[:xxx] #=> ['one', 'two']
+```
+
+### Merge
+
+```ruby
+h = {a: 1, b: 2}
+params = h.merge(b: 22, c: 33) #=> {a: 1, b: 22, c: 22}
+h #=> {a: 1, b: 2}
+
+h = {a: 1, b: 2}
+params = h.merge!(b: 22, c: 33)
+h #=> {a: 1, b: 22, c: 33}
+```
+
+### Comparison
+
+```ruby
+h = {a: 1, b: 2}
+h2 = {b: 2, a: 1}
+h == h2 #=> true
+```
+
+### Iterating over a Hash
+
+```ruby
+h = {a: 11, b: 22}
+h.each { |k, v| p "#{k} -- #{v}" }
+'a -- 11'
+'b -- 22'
+```
