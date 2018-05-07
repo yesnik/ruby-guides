@@ -319,3 +319,52 @@ end
 p Cat.hi #=> 'Hello'
 p Cat.bye #=> 'Good bye'
 ```
+
+### .module_function
+
+`module_function` allows us to call module's methods directly.
+
+```ruby
+module Hero
+  def secret
+    'Secret!'
+  end
+  
+  module_function
+  
+  def hi
+    'Hi!'
+  end
+  
+  def hey
+    'Hey!'
+  end
+end
+
+Hero.secret #=> undefined method `secret' for Hero:Module
+Hero.hi #=> 'Hi'
+Hero.hey #=> 'Hey!'
+```
+
+`module_function` acts like `private` keyword for module's methods:
+
+```ruby
+class Batman
+  extend Hero
+end
+
+p Batman.secret #=> "Secret!"
+p Batman.hey #=> private method `hey' called for Batman:Class
+
+
+class Cat
+  include Hero
+end
+
+tom = Cat.new
+
+p tom.secret #=> "Secret!"
+p tom.hey #=> private method `hey' called for #<Cat:0x000055e6dcd5c6e0>
+```
+
+
