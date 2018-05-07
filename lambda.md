@@ -44,3 +44,12 @@ a = -> { 'hello' }
 a.class #=> Proc
 a.call #=> 'hello'
 ```
+
+## Threequals defined as an alias to .call
+
+```ruby
+odd = ->(a) { a % 2 != 0 }
+
+p odd === 1 #=> true
+p odd === 2 #=> false
+```
