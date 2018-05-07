@@ -322,7 +322,7 @@ p Cat.bye #=> 'Good bye'
 
 ### .module_function
 
-`module_function` allows us to call module's methods directly.
+1. `module_function` allows us to call module's methods directly. It makes the methods available as singleton methods on the module.
 
 ```ruby
 module Hero
@@ -346,7 +346,7 @@ Hero.hi #=> 'Hi'
 Hero.hey #=> 'Hey!'
 ```
 
-`module_function` acts like `private` keyword for module's methods:
+2. `module_function` acts like `private` keyword for module's methods. It allows us to prevent cluttering up public interfaces of our objects. 
 
 ```ruby
 class Batman
