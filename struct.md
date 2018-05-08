@@ -23,3 +23,28 @@ end
 #=> "name -- Kenny"
 #=> "age -- 20"
 ```
+## Using Struct in class
+
+```ruby
+class Student
+  Status = Struct.new(:title) do
+    def to_s
+      title
+    end
+  end
+
+  STATUSES = [
+    FOREIGN = Status.new('foreign'),
+    NATIVE = Status.new('native')
+  ]
+end
+
+p Student::STATUSES
+#=> [#<struct Student::Status title="foreign">, 
+#    #<struct Student::Status title="native">]
+
+p Student::NATIVE
+#=> #<struct Student::Status title="native">
+
+p "#{Student::FOREIGN}" #=> "foreign"
+```
