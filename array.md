@@ -202,6 +202,18 @@ end
 'aaaa b cc'.split.sort_by(&:length) #=> ['b', 'cc', 'aaaa']
 ```
 
+### Sort an array in descending order
+
+```ruby
+a = [1, 5, 3]
+# Way 1
+a.sort_by { |n| -n } #=> [5, 3, 1]
+# Way 2 
+a.sort.reverse
+# Way 3
+a.sort { |x, y| -(x <=> y) }
+```
+
 ## .all?
 
 ```ruby
