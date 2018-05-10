@@ -28,4 +28,11 @@ Integer.ancestors
 1.upto(3).class #=> Enumerator
 1.upto(3).map(&:to_i) #=> [1, 2, 3]
 3.downto(1).map(&:to_i) #=> [3, 2, 1]
+
+# Returns the greatest common divisor (always positive)
+4.gcd(8) #=> 4
+
+# Returns the least common multiple (always positive)
+3.lcm(4) #=> 12
+2.lcm(5) #=> 10
 ```
