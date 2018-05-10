@@ -58,6 +58,13 @@ long.lines.count #=> 2
 long[0,1] #=> 'a'
 ```
 
+## .count
+
+```ruby
+str = 'aabxxxx'
+str.count('ab') #=> 3
+```
+
 ## .tr, .tr!
 
 It replaces letters in given string:
