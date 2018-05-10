@@ -75,6 +75,15 @@ It replaces letters in given string:
 'abca'.tr('abc', '_*') #=> '_**_'
 ```
 
+## .gsub
+
+This method replaces substring
+
+```ruby
+'Hello World'.gsub(/[a-z\s]/, '') #=> 'HW'
+'abbc'.gsub('bb', '') #=> "ac" 
+```
+
 ## String to array
 
 ```ruby
