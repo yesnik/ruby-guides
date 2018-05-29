@@ -32,3 +32,18 @@ logger.debug 'Some debug'
 Only 'Strange bug' will be logged.
 
 We should use `info` as severity level for normal logs. For exceptions, we use `error`.
+
+## Log to file
+
+```ruby
+require 'logger'
+
+logger = Logger.new('/var/tmp/errors.log')
+logger.error 'Incorrect date'
+```
+This will create message in file `/var/tmp/errors.log`:
+
+```
+# Logfile created on 2018-05-10 12:00:10 +0500 by logger.rb/61378
+E, [2018-05-10T12:00:10.848344 #6367] ERROR -- : Incorrect date
+```
