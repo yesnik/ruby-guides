@@ -39,6 +39,8 @@ You can add methods to classes, remove them or redefine them.
 
 ## .define_method
 
+This method allows us to define instance methods on class initialization.
+
 ```ruby
 class Factory
   ['robocop', 'terminator'].each do |hero|
@@ -53,10 +55,35 @@ p f.init_robocop(50) #=> 'My power is 50'
 p f.init_terminator(10) #=> 'My power is 10'
 ```
 
-We have code that's generating the code for us. Pretty meta, isn't it?
+Also we can create class and dynamically define instance method for it.
 
-Many Ruby libraries use exactly this technique to define methods dynamically based on, say, database schemas.
-Rails, for example, will create methods such as `User#find_by_first_name_and_last_name`
+```ruby
+name = 'kenny'
+Student = Class.new do
+  define_method "hello_#{name}" do |x|
+    "#{name}, do you have $#{x}?"
+  end
+end
+Student.new.hello_kenny #=> "kenny, do you have $100?"
+```
+
+Many Ruby libraries use exactly this technique to define methods dynamically based on database schemas.
+Rails will create methods such as `User#find_by_first_name_and_last_name`
+
+## .define_singleton_method
+
+This method allows us to define class methods.
+
+```ruby
+name = 'teacher'
+Student = Class.new do
+  define_singleton_method "hi_#{name}" do |person_name|
+    "Hi, #{person_name}!"
+  end
+end
+Student.new.hi_teacher # undefined method `hi_teacher' for #<Student:0x000055ed4c370bd8>
+Student.hi_teacher('Mr. Wane') #=> "Hi, Mr. Wane!"
+```
 
 ## .remove_method
 
