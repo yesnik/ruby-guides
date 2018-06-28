@@ -68,6 +68,17 @@ Kernel.const_get('Robocop') #=> NameError: wrong constant name Robocop
 Kernel.const_get('Cat::NAME') #=> 'Tom'
 ```
 
+### .const_set
+
+Method allows to define the value of variable.
+
+```ruby
+name = 'Student'
+Kernel.const_set name, Class.new { def hi; 'Hello'; end }
+Student.new #=> #<Hello:0x00005fxfas32>
+Student.new.hi #=> 'Hello'
+```
+
 ### .instance_variable_get
 
 It allows us to retrieve the value of an instance variable defined on our class or module.
