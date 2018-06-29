@@ -38,10 +38,12 @@ str = 'nny'
 a =~ /#{str}/ #=> 2
 ```
 
-## Find, substitute
+## .scan
+
+This method allows us to get an array of matching results:
 
 ```ruby
-'one two-three'.scan(/\w+/) #=> ['one', 'two', 'three']
+'user 555 pass 123'.scan(/\d+/) #=> ['555', '123']
 ```
 
 ### Substitute first 
@@ -111,8 +113,15 @@ $1 #=> 'cat'
 $2 #=> 'dog'
 ```
 
-### Match method
+## .match
 
 ```ruby
 'hello kenny'.match(/ken/) #=> #<MatchData 'ken'>
+```
+
+## .match?
+
+```ruby
+/wo/.match? 'world' #=> true
+/wod/.match? 'world' #=> false
 ```
