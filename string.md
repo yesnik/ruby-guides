@@ -84,6 +84,15 @@ This method replaces substring
 'abbc'.gsub('bb', '') #=> "ac" 
 ```
 
+We can apply method for matching parts of string:
+```ruby
+# upcase will be applied for letter 'o'
+'hello world'.gsub(/o/, &:upcase) #=> "hellO wOrld"
+
+# upcase function will be applied for words with length 5 or more
+'good morning my friends'.gsub(/\w{5,}/, &:upcase) #=> "good MORNING my FRIENDS"
+```
+
 ## String to array
 
 ```ruby
