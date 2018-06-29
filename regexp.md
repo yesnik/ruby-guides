@@ -125,3 +125,13 @@ $2 #=> 'dog'
 /wo/.match? 'world' #=> true
 /wod/.match? 'world' #=> false
 ```
+
+## =~ and != operators
+
+```ruby
+'hello' =~ /el/ #=> 1
+'hello' =~ /hi/ #=> nil
+
+'hello' !~ /hi/ #=> true
+'hello' !~ /llo/ #=> false
+```
