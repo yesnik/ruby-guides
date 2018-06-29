@@ -126,7 +126,7 @@ $2 #=> 'dog'
 /wod/.match? 'world' #=> false
 ```
 
-## =~ and != operators
+## =~ and !~ operators
 
 ```ruby
 'hello' =~ /el/ #=> 1
