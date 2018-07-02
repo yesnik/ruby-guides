@@ -9,6 +9,18 @@ h.size #=> 0
 We need to use the arrow syntax whenever the key is not a symbol:
 
 ```ruby
+# BAD
+h = {'5': [1, 2]}
+h[5] #=> nil
+h['5'] #=> nil
+h[:'5'] #=> [1, 2]
+
+# GOOD
+h = {5 => [1, 2]}
+h[5] #=> [1, 2]
+```
+
+```ruby
 {'kenny' => 20} #=> {"kenny"=>20}
 {'kenny': 20} #=> {:kenny=>20}
 {kenny: 20} #=> {:kenny=>20}
