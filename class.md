@@ -803,3 +803,19 @@ kesha.class.hi #=> :hi
 Class methods don't have access to instance methods or instance variables.
 However instance methods can access both class methods and class variables.
 
+### We can call class methods from class methods without self
+
+```ruby
+class Man
+  def self.hi
+    # We can omit `self` when calling class method 
+    [self.greet, greet] 
+  end
+  
+  def self.greet
+    'Wow'
+  end
+end
+
+Man.hi #=> ['Wow', 'Wow']
+```
