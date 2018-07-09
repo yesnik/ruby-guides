@@ -93,6 +93,13 @@ We can apply method for matching parts of string:
 'good morning my friends'.gsub(/\w{5,}/, &:upcase) #=> "good MORNING my FRIENDS"
 ```
 
+## .empty?
+
+```ruby
+'hello'.empty? #=> false
+''.empty? #=> true
+```
+
 ## String to array
 
 ```ruby
