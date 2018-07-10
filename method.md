@@ -175,7 +175,6 @@ def hi(name: 'Kenny', age: 20)
   [name, age]
 end
 
-hi.class #=> Array
 hi #=> ['Kenny', 20]
 hi(name: 'Jenny') #=> ['Jenny', 20]
 hi age: 16 #=> ['Kenny', 16]
@@ -184,7 +183,8 @@ def hey(name, age: 20)
   [name, age]
 end
 
-hey 'Kenny' #=> ['Kenny', 20]
+hey('Kenny') #=> ['Kenny', 20]
+hey('Kenny', 18) #=> ArgumentError (wrong number of arguments (given 2, expected 1))
 hey #=> ArgumentError: wrong number of arguments (given 0, expected 1)
 ```
 
