@@ -272,6 +272,11 @@ arr.delete('a') #=> 'a'
 arr.delete('zzz') #=> nil
 arr #=> ['b']
 
+arr = [22, 33, 44]
+arr.delete_at(1) #=> 33
+arr #=> [22, 44]
+arr.delete_at(99) #=> nil
+
 arr = [1, 2, 3, 4, 5]
 arr.delete_if { |x| x < 4 } #=> [4, 5]
 arr #=> [4, 5]
