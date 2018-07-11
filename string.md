@@ -57,6 +57,12 @@ long.length #=> 4
 long.lines.count #=> 2
 long[0,1] #=> 'a'
 ```
+## .chars
+
+```ruby
+'abc'.chars #=> ['a', 'b', 'c']
+''.chars #=> []
+```
 
 ## .count
 
