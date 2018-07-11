@@ -29,13 +29,23 @@ a[0...2] #=> [1, 2]
 [2, 3, 4, 5].index { |x| x > 4 } #=> 3
 ```
 
-## .array_with_index
+## .each_with_index
 
 ```ruby
-[11, 22].each_with_index { |v, i| p "#{i} -- #{v}" }
-#=> 
+[11, 22].each_with_index { |v, i| p "#{i} -- #{v}" } #=> [11, 22]
+# Output:
 "0 -- 11"
 "1 -- 22"
+```
+
+### .each_with_index.map
+
+```ruby
+[11, 22].each_with_index.map { |v, i| [v, i] }
+#=> [[11, 0], [22, 0]]
+
+[11, 22].each_with_index.map! { |v, i| [v, i] }
+#=> NoMethodError (undefined method map! for Enumerator)
 ```
 
 We can create custom method .map_with_index for Array:
@@ -83,6 +93,13 @@ This method modifies original array:
 a = [1, 2]
 a.map! { |x| x + 1 } #=> [2, 3]
 a #=> [2, 3]
+```
+
+## .with_index
+
+```ruby
+[11, 22].map.with_index { |v, i| [v, i] } #=> [[11, 0], [22, 0]]
+[11, 22].map!.with_index { |v, i| [v, i] } #=> [[11, 0], [22, 0]]
 ```
 
 ## .product
