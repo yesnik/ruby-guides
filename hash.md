@@ -59,6 +59,33 @@ h.delete(:a) #=> 11
 h #=> {:b=>22}
 ```
 
+## Non-destructive selection
+
+### .select
+
+```ruby
+h = {a: 11, b: 22, c: 0}
+h.select { |k, v| v > 0 } #=> {a: 11, b: 22}
+h #=> {a: 11, b: 22, c: 0}
+```
+
+### .reject
+
+```ruby
+h = {a: 11, b: 22, c: 0}
+h.reject { |k, v| v.zero? } #=> {a: 11, b: 22}
+h #=> {a: 11, b: 22, c: 0}
+```
+
+### .drop_while
+
+```ruby
+h = {a: 11, b: 22, x: 0, y: 5}
+h.drop_while { |k, v| v > 0 } #=> [[:x, 0], [:y, 5]]
+h #=> {a: 11, b: 22, x: 0, y: 5}
+```
+
+
 ## Destructive selection
 
 ### .delete_if
