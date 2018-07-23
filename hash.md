@@ -79,6 +79,10 @@ h #=> {:name=>'Kenny'}
 h = Hash.new('Kenny')
 h[:some] #=> 'Kenny'
 
+h = Hash.new
+h.default = 99
+h[:a] #=> 99
+
 h = Hash.new { |hash, key| hash[key] = [] }
 h[:a] = 11
 h[:b] << 22
