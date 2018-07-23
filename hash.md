@@ -51,6 +51,32 @@ Hash[*arr2] #=> ArgumentError: odd number of arguments for Hash
 #=> {'a'=>11, 'b'=>22}
 ```
 
+### .delete
+
+```ruby
+h = {a: 11, b: 22}
+h.delete(:a) #=> 11
+h #=> {:b=>22}
+```
+
+## Destructive selection
+
+### .delete_if
+
+```ruby
+h = {a: 11, b: 22, x: 0}
+h.delete_if { |k, v| v.zero? } #=> {a: 11, b: 22}
+h #=> {a: 11, b: 22}
+```
+
+### .keep_if
+
+```ruby
+h = {a: 11, b: 22, x: 0}
+h.keep_if { |k, v| v.zero? } #=> {x: 0}
+h #=> {x: 0}
+```
+
 ### Get hash elements
 
 ```ruby
