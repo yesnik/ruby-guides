@@ -112,25 +112,6 @@ a #=> [2, 3]
 #=> [[1, 11], [2, 11]]
 ```
 
-## .select (or .find_all)
-
-```ruby
-[1, 2, 3, 4].select { |x| x % 2 == 0 }
-#=> [2]
-```
-
-## .reject
-
-```ruby
-a = [[1, 2], [2, 2], [2, 3]]
-a.reject { |x| x.first == x.last }
-#=> [[1, 2], [2, 3]]
-
-b = [1, 2, 3, 4, 5]
-b.reject(&:even?)
-#=> [1, 3, 5] 
-```
-
 ## .transpose
 
 ```ruby
@@ -213,13 +194,6 @@ end
 [1, 4, 2].sample #=> 1
 ```
 
-## .select
-
-```ruby
-[1, 2, 3].select { |n| n.odd? } #=> [1, 3]
-[1, 2, 3].select(&:odd?) #=> [1, 3]
-```
-
 ## .sort
 
 ```ruby
@@ -266,6 +240,74 @@ a.sort { |x, y| -(x <=> y) }
 [2, 3].none? { |x| x < 0 } #=> true
 ```
 
+## Non-destructive selection
+
+The original array remains unchanged.
+
+### .select (or .find_all)
+
+```ruby
+[1, 2, 3].select { |n| n.odd? } #=> [1, 3]
+[1, 2, 3].select(&:odd?) #=> [1, 3]
+```
+
+### .reject
+
+```ruby
+a = [1, 2, 3, 4]
+a.reject(&:even?) #=> [1, 3] 
+a #=> [1, 2, 3, 4]
+
+a = [[1, 2], [2, 2], [2, 3]]
+a.reject { |x| x.first == x.last }
+#=> [[1, 2], [2, 3]]
+```
+
+### .drop_while
+
+Removes elements till the block returns false for the first time
+
+```ruby
+a = [2, 1, 0, 1, 2]
+a.drop_while { |x| x > 0 } #=> [0, 1, 2]
+a #=> [2, 1, 0, 1, 2]
+```
+
+## Destructive selection
+
+### .select!
+
+```ruby
+a = [1, 2, 3, 4]
+a.select! { |x| x > 2 } #=> [3, 4]
+a #=> [3, 4]
+```
+
+### .reject!
+
+```ruby
+a = [1, 2, 3, 4]
+a.reject! { |x| x < 3 } #=> [3, 4]
+a #=> [3, 4]
+```
+
+### .delete_if
+
+```ruby
+a = [1, 2, 3, 4]
+a.delete_if { |x| x < 3 } #=> [3, 4]
+a #=> [3, 4]
+```
+
+### .keep_if
+
+```ruby
+a = [2, 3, 4, 5]
+a.keep_if { |x| x > 3 } #=> [4, 5]
+a #=> [4, 5]
+```
+
+
 ## Modify arrays
 
 ```ruby
@@ -308,10 +350,6 @@ arr = [22, 33, 44]
 arr.delete_at(1) #=> 33
 arr #=> [22, 44]
 arr.delete_at(99) #=> nil
-
-arr = [1, 2, 3, 4, 5]
-arr.delete_if { |x| x < 4 } #=> [4, 5]
-arr #=> [4, 5]
 
 a = [1, 2, 3]
 b = [3, 4]
