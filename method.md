@@ -127,7 +127,9 @@ def hi(name, greet='hi')
 end
 ```
 
-### Many arguments
+## Many arguments
+
+### Splat operator (*)
 
 We use splat operator (*) to handle methods which have a variable parameter list.
 
@@ -154,6 +156,19 @@ def add(a, b)
 end
 arr = [10, 5]
 add(*arr) #=> 15
+```
+
+### Double splat operator (**)
+
+It collects all the extra named keywords as a hash parameter.
+
+```ruby
+def hello(name, age: 18, **opts)
+  "#{name} of age #{age}. Your opts: #{opts}"
+end
+
+hello('Kenny') #=> "Kenny of age 18. Your opts: {}"
+hello('Kenny', height: 200) #=> "Kenny of age 18. Your opts: {:height=>200}"
 ```
 
 ### Private methods
