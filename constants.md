@@ -19,7 +19,16 @@ Hi.new.name #=> 'Insider'
 Hi.new.outer_name #=> 'Kenny'
 ```
 
-### Who wins with both nested and inherited constants
+## We can't define constant in method
+
+```ruby
+def hi
+  HI = 'hello'
+end
+#=> SyntaxError: dynamic constant assignment
+```
+
+## Who wins with both nested and inherited constants
 
 ```ruby
 class Robot
