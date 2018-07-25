@@ -444,6 +444,20 @@ a.inspect #=> '[11, 22]'
 [1, 2] == [2, 1] #=> false
 ```
 
+## Array with hashes
+
+```ruby
+[1, {a: 11, b: 22}] #=> [1, {:a=>11, :b=>22}]
+```
+We can omit curly braces, but in this case hash must be the last element of array:
+
+```ruby
+[1, a: 11, b: 22] #=> [1, {:a=>11, :b=>22}]
+
+[1, a: 11, 5, b: 22] #=> SyntaxError: unexpected ',', expecting =>
+[1, a: 11, b: 22, 5] #=> SyntaxError: unexpected ',', expecting =>
+```
+
 ## Assignment
 
 ```ruby
