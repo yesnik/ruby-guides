@@ -5,7 +5,26 @@ It's, as a consequence, significantly faster than a lambda, but not as versatile
 also one of the rare instances where Ruby's "everything is an object" rule is broken.
 A block is like a method, but one that isn't associated with any object.
 
-Example that uses regulat block syntax:
+### Passing a block to a method that takes no parameter
+
+```ruby
+def greet
+  puts 'Start'
+  yield
+  puts 'End'
+end
+
+greet { puts 'Hi' }
+#=> Start Hi End
+```
+
+In this example, a block is passed to the `greet` method. To invoke this block inside the method, we use a keyword `yield`.
+Calling `yield` will execute the code within the block that is provided to the method.
+
+
+### Passing a block to a method that takes one or more parameters
+
+Example that uses regular block syntax:
 
 ```ruby
 def calculate(a, b, action)
