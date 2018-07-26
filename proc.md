@@ -52,23 +52,3 @@ But if we'll try to get `.binding` of another object we'll get an error:
 5.binding #=> NoMethodError: private method 'binding' called for 1:Integer
 'hi'.binding #=> NoMethodError: private method 'binding'
 ```
-
-## `return` word in proc
-
-When you call your proc, it will not only jump out of it, but will also return from the enclosing method:
-
-```ruby
-def hello
-  p 'before'
-  proc_test = proc do
-    p 'inside'
-    return
-  end
-  proc_test.call
-  p 'after'
-end
-
-hello
-#=> before
-#=> inside
-```
