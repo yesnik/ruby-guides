@@ -38,6 +38,17 @@ empty_block.class #=> Proc
 empty_block.class.ancestors #=> [Proc, Object, Kernel, BasicObject]
 ```
 
+## Call lambda
+
+Lambdas can be called using both `.call()` and `.()`:
+
+```ruby
+area = ->(a, b) { a * b }
+
+area.call(2, 3) #=> 6
+area.(2, 3) #=> 6
+```
+
 ## Lambda that takes explicit block
 
 ```ruby
