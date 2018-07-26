@@ -1,10 +1,26 @@
 # Lambdas
 
-- Lambda is a piece of code that you can store in a variable.
-- Lambda is just a function without a name. 
-- Lambdas in Ruby are also objects, just like everything else! 
-- Thle last expression of a lambda is its return value.
-- The `lambda` keyword is what is most commonly used to create a block in Ruby.
+- Lambda is a piece of code that you can store in a variable
+- Lambda is just a function without a name
+- Lambdas in Ruby are objects of the class `Proc`
+- Thle last expression of a lambda is its return value
+- The `lambda` keyword is what is most commonly used to create a block in Ruby
+
+## Two ways of defining lambda
+
+```ruby
+# Ruby version <= 1.8
+lambda { ... }
+lambda do
+  ...
+end
+
+# Ruby version >= 1.9: "stabby lambda" syntax was added
+-> { ... }
+-> do
+  ..
+end
+```
 
 ```ruby
 a = lambda { 'hi' }
