@@ -1,11 +1,24 @@
 # Proc
 
+`Proc` objects are blocks of code that can be bound to a set of local variables. 
+We can think of a `proc` object as a "saved" block.
+
 ```ruby
 Proc.ancestors
 #=> [Proc, Object, Kernel, BasicObject]
 
 pr = Proc.new { 'hi' }
 pr.call #=> 'hi'
+```
+Another way of defining `proc`:
+
+```ruby
+def calc(x, y, operation)
+  operation.call(x, y)
+end
+
+pow = proc { |x, y| x ** y }
+puts calc(2, 3, pow) #=> 8
 ```
 
 ### .binding
@@ -33,7 +46,7 @@ greet.call #=> 'Jenny'
 greet.binding #=> #<Binding:0x00595656524>
 ```
 
-But if we'll to get .binding of another object we'll get an error:
+But if we'll try to get `.binding` of another object we'll get an error:
 
 ```ruby
 5.binding #=> NoMethodError: private method 'binding' called for 1:Integer
