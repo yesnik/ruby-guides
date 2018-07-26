@@ -21,7 +21,7 @@ pow = proc { |x, y| x ** y }
 puts calc(2, 3, pow) #=> 8
 ```
 
-### .binding
+## .binding
 
 It returns a Binding object representing the context in which the `Proc` was created.
 This is because procs have access to the local variables outside their scope.
@@ -51,4 +51,24 @@ But if we'll try to get `.binding` of another object we'll get an error:
 ```ruby
 5.binding #=> NoMethodError: private method 'binding' called for 1:Integer
 'hi'.binding #=> NoMethodError: private method 'binding'
+```
+
+## `return` word in proc
+
+When you call your proc, it will not only jump out of it, but will also return from the enclosing method:
+
+```ruby
+def hello
+  p 'before'
+  proc_test = proc do
+    p 'inside'
+    return
+  end
+  proc_test.call
+  p 'after'
+end
+
+hello
+#=> before
+#=> inside
 ```
