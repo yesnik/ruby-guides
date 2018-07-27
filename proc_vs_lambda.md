@@ -68,7 +68,8 @@ add_lambda.call(2, 3, 4) #=> ArgumentError: wrong number of arguments (given 3, 
 
 ## Capture variables on definition
 
-It looks like `proc` on definition remembered the initial state of variable `a`.
+It looks like `proc` and `lambda` on definition remember the state of undefined variable `a`.
+We can define variable `a` after `proc` and `lambda` definition, but they won't see this variable anymore.
 
 ### Proc
 
