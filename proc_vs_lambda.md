@@ -98,19 +98,19 @@ our_proc.call #=> 10
 ### Lambda
 
 ```ruby
-our_lambda = -> { 1 + a }
-our_lambda.call #=> NameError: undefined local variable or method 'a' for main:Object
+la = -> { a }
+la.call #=> NameError: undefined local variable or method 'a' for main:Object
 a = 1
-our_lambda.call #=> NameError: undefined local variable or method 'a' for main:Object
+la.call #=> NameError: undefined local variable or method 'a' for main:Object
 ```
 
 If we define `a` before `lambda` creation:
 
 ```ruby
 a = 1
-our_lambda = -> { 1 + a }
-our_lambda.call #=> 2
+la = -> { a }
+la.call #=> 1
 
 a = 10
-our_lambda.call #=> 11
+la.call #=> 10
 ```
