@@ -65,3 +65,47 @@ add_lambda = ->(a, b) { a + b }
 add_lambda.call(2, 3) #=> 5
 add_lambda.call(2, 3, 4) #=> ArgumentError: wrong number of arguments (given 3, expected 2)
 ```
+
+## Capture variables on definition
+
+It looks like `proc` on definition remembered the initial state of variable `a`.
+
+### Proc
+
+```ruby
+our_proc = proc { 1 + a }
+our_proc.call #=> NameError: undefined local variable or method 'a' for main:Object
+a = 1
+our_proc.call #=> NameError: undefined local variable or method 'a' for main:Object
+```
+
+If we define `a` before `proc` creation:
+
+```ruby
+a = 1
+our_proc = proc { 1 + a }
+our_proc.call #=> 2
+
+a = 10
+our_proc.call #=> 11
+```
+
+### Lambda
+
+```ruby
+our_lambda = -> { 1 + a }
+our_lambda.call #=> NameError: undefined local variable or method 'a' for main:Object
+a = 1
+our_lambda.call #=> NameError: undefined local variable or method 'a' for main:Object
+```
+
+If we define `a` before `lambda` creation:
+
+```ruby
+a = 1
+our_lambda = -> { 1 + a }
+our_lambda.call #=> 2
+
+a = 10
+our_lambda.call #=> 11
+```
