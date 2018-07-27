@@ -66,10 +66,12 @@ add_lambda.call(2, 3) #=> 5
 add_lambda.call(2, 3, 4) #=> ArgumentError: wrong number of arguments (given 3, expected 2)
 ```
 
-## Capture variables on definition
+## Closure behaviour
+
+Blocks, Procs and Lambdas are *closures* in Ruby. They remember the values of all the variables that were in scope on the moment of their definition. They are then able to access those variables when it is called even if they are in a different scope.
 
 It looks like `proc` and `lambda` on definition remember the state of undefined variable `a`.
-We can define variable `a` after `proc` and `lambda` definition, but they won't see this variable anymore.
+We can define variable `a` after `proc` and `lambda` definition, but they won't get the new value of this variable. They'll use captured value of variable.
 
 ### Proc
 
