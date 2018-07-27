@@ -70,27 +70,29 @@ add_lambda.call(2, 3, 4) #=> ArgumentError: wrong number of arguments (given 3, 
 
 Blocks, Procs and Lambdas are *closures* in Ruby. They remember the values of all the variables that were in scope on the moment of their definition. They are then able to access those variables when it is called even if they are in a different scope.
 
-It looks like `proc` and `lambda` on definition remember the state of undefined variable `a`.
-We can define variable `a` after `proc` and `lambda` definition, but they won't get the new value of this variable. They'll use captured value of variable.
-
 ### Proc
 
 ```ruby
-our_proc = proc { 1 + a }
-our_proc.call #=> NameError: undefined local variable or method 'a' for main:Object
+pr = proc { a }
+pr.call #=> NameError: undefined local variable or method 'a' for main:Object
 a = 1
-our_proc.call #=> NameError: undefined local variable or method 'a' for main:Object
+
+# On `pr` creation variable `a` wasn't defined, so there is no link from `pr` to current scope.
+# That's why we get `NameError`:
+pr.call #=> NameError: undefined local variable or method 'a' for main:Object
 ```
 
 If we define `a` before `proc` creation:
 
 ```ruby
 a = 1
-our_proc = proc { 1 + a }
-our_proc.call #=> 2
+pr = proc { a }
+pr.call #=> 1
 
 a = 10
-our_proc.call #=> 11
+# On `pr` creation variable `a` was defined in the scope, so there is the link from `pr` to current scope.
+# That's why we don't see `NameError`:
+our_proc.call #=> 10
 ```
 
 ### Lambda
