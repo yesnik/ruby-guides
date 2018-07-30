@@ -52,3 +52,17 @@ nums.each { |x| p x }
 nums.select { |x| x > 2 }
 #=> [2, 5]
 ```
+
+## Lazy evaluation
+
+Ruby 2.0 introduced a lazy enumeration feature. Lazy evaluation is an evaluation strategy that delays the assessment of an expression untill its value is needed. It increases performance by avoiding needless calculations, and it has the ability to create potentially infinite data structures.
+
+### Print an array of the first N palindromic prime numbers
+
+For example, the first 7 palindromic prime numbers are: `[2, 3, 5, 7, 11, 101, 131]`.
+
+```ruby
+require 'prime'
+n = gets.to_i
+p Prime.each.lazy.select { |x| x.to_s == x.to_s.reverse }.first(n)
+```
