@@ -140,12 +140,13 @@ These methods locate the first element matching a criteria
 ```
 
 ## .inject
+## .reduce
 
 ```ruby
 [1, 2, 3].inject(0) { |sum, item| sum + item }
 #=> 6
 
-[1, 2, 3].inject(:+) #=> 6
+[1, 2, 3].reduce(:+) #=> 6
 
 menu = {juce: 50, carbonara: 200}
 order = {juce: 2, carbonara: 1}
