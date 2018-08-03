@@ -147,6 +147,7 @@ These methods locate the first element matching a criteria
 #=> 6
 
 [1, 2, 3].reduce(:+) #=> 6
+[1, 2, 3].reduce(10, :+) #=> 16
 
 menu = {juce: 50, carbonara: 200}
 order = {juce: 2, carbonara: 1}
