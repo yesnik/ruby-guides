@@ -38,6 +38,14 @@ empty_block.class #=> Proc
 empty_block.class.ancestors #=> [Proc, Object, Kernel, BasicObject]
 ```
 
+### We can't use stabby lambda syntax anywhere
+
+```ruby
+a = lambda { |x| x**2 } #=> #Proc:0x00004523 (lambda)>
+
+a = -> { |x| x**2 } #=> SyntaxError: unexpected '|'
+```
+
 ## Call lambda
 
 Lambdas can be called using both `.call()` and `.()`:
