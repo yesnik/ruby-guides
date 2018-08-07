@@ -162,9 +162,8 @@ end
 [1, 2, 3].reduce(0, &proc { |sum, x| sum + x**2 }) #=> 14
 [1, 2, 3].reduce(0, &lambda { |sum, x| sum + x**2 }) #=> 14
 
-# Note: In this example we can't replace `lambda` with shortcut `->`:
-[1, 2, 3].reduce(0, &-> { |sum, x| sum + x**2 })
-#=> SyntaxError: unexpected '|', expecting '='
+# Note: In this example we can replace `lambda` with shortcut `->`:
+[1, 2, 3].reduce(0, &-> (sum, x) { sum + x**2 }) #=> 14
 ```
 
 ## .drop
