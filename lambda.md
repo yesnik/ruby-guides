@@ -6,6 +6,13 @@
 - Thle last expression of a lambda is its return value
 - The `lambda` keyword is what is most commonly used to create a block in Ruby
 
+```ruby
+a = lambda {}
+a.object_id #=> 47000480547920
+a.class #=> Proc
+a.class.ancestors #=> [Proc, Object, Kernel, BasicObject]
+```
+
 ## Two ways of defining lambda
 
 ### Lambda syntax for Ruby version <= 1.8
@@ -27,26 +34,17 @@ end
 ### Lambda syntax for Ruby version >= 1.9: "stabby lambda" syntax
 
 ```ruby
--> { ... }
--> do
-  ..
+# No input params
+a = -> { 5 }
+a = -> do
+  5
 end
-```
 
-```ruby
-a = lambda { 'hi' }
-a.call #=> 'hi'
-
-b = lambda { |n| "hi, #{n}" }
-b.call 'Kenny' #=> 'hi, Kenny'
-
-add = lambda { |a, b| a + b }
-add.call(2, 3) #=> 5
-
-empty_block = lambda {}
-empty_block.object_id #=>1232123112312
-empty_block.class #=> Proc
-empty_block.class.ancestors #=> [Proc, Object, Kernel, BasicObject]
+# With input params
+a = -> (x) { x**2 }
+a = -> (x) do
+  x**2
+end
 ```
 
 ## Call lambda
