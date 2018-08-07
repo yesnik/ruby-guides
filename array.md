@@ -156,6 +156,16 @@ order.keys.inject(0) do |order_cost, key|
 end
 #=> 300
 ```
+### We can pass proc or lambda
+
+```ruby
+[1, 2, 3].reduce(0, &proc { |sum, x| sum + x**2 }) #=> 14
+[1, 2, 3].reduce(0, &lambda { |sum, x| sum + x**2 }) #=> 14
+
+# Note: In this example we can't replace `lambda` with shortcut `->`:
+[1, 2, 3].reduce(0, &-> { |sum, x| sum + x**2 })
+#=> SyntaxError: unexpected '|', expecting '='
+```
 
 ## .drop
 
