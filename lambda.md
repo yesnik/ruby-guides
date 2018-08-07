@@ -8,14 +8,25 @@
 
 ## Two ways of defining lambda
 
+### Lambda syntax for Ruby version <= 1.8
+
 ```ruby
-# Ruby version <= 1.8
-lambda { ... }
-lambda do
-  ...
+# No input params
+a = lambda { 5 }
+a = lambda do
+  5
 end
 
-# Ruby version >= 1.9: "stabby lambda" syntax was added
+# With input params
+a = lambda { |x| x**2 }
+a = lambda do |x|
+  x**2
+end
+```
+
+### Lambda syntax for Ruby version >= 1.9: "stabby lambda" syntax
+
+```ruby
 -> { ... }
 -> do
   ..
@@ -36,14 +47,6 @@ empty_block = lambda {}
 empty_block.object_id #=>1232123112312
 empty_block.class #=> Proc
 empty_block.class.ancestors #=> [Proc, Object, Kernel, BasicObject]
-```
-
-### We can't use stabby lambda syntax anywhere
-
-```ruby
-a = lambda { |x| x**2 } #=> #Proc:0x00004523 (lambda)>
-
-a = -> { |x| x**2 } #=> SyntaxError: unexpected '|'
 ```
 
 ## Call lambda
