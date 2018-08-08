@@ -106,6 +106,28 @@ We can apply method for matching parts of string:
 ''.empty? #=> true
 ```
 
+## .chomp
+
+```ruby
+" hi  \n".chomp #=> " hi  "
+" hi".chomp #=> " hi"
+```
+
+## .chop
+
+```ruby
+" hi  \n".chop #=>" hi  "
+"hi".chop #=> "h"
+" hi \t \r\n".chop #=> " hi \t "
+```
+
+## .strip
+
+```ruby
+" hi  \n".strip #=> "hi"
+" hi \t \r\n".strip #=> "hi"
+```
+
 ## String to array
 
 ```ruby
