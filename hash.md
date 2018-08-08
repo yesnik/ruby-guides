@@ -59,6 +59,34 @@ h.delete(:a) #=> 11
 h #=> {:b=>22}
 ```
 
+## .any?
+
+```ruby
+{a: 11, b: 22}.any? { |k, v| v == 11 } #=> true
+{a: 11, b: 22}.any? { |k, v| k == :a } #=> true
+```
+
+## .all?
+
+```ruby
+{a: 11, b: 22}.all? { |k, v| v > 0 } #=> true
+```
+
+## .none?
+
+```ruby
+{a: 11, b: 22}.none? { |k, v| v < 0 } #=> true
+```
+
+## .find
+
+This method returns an Array of the first match [key, value] that satisfies the condition.
+
+```ruby
+{a: 11, b: 22, c: 33}.find { |k, v| v > 20 } #=> [:b, 22]
+{a: 11, b: 22, c: 33}.find { |k, v| v > 100 } #=> nil 
+```
+
 ## Non-destructive selection
 
 ### .select
