@@ -133,6 +133,13 @@ a.transpose
 [1, 2].cycle(3) { |x| puts x } #=> 1 2 1 2 1 2
 ```
 
+## .group_by
+
+```ruby
+[1, 2, 3, 4].group_by { |x| x % 2 == 0 }
+#=> {false=>[1, 3], true=>[2, 4]}
+```
+
 ## .inject
 ## .reduce
 
