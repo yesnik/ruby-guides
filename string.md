@@ -21,8 +21,6 @@ a.each_char { |x| p x }
 'hi'.to_s #=> 'hi'
 'hi'.inspect #=> '"hi"'
 
-'Hello my Kenny'.include?('my') #=> true
-
 'abbc'.start_with? 'a' #=> true
 'abbc'.end_with? 'c' #=> true
 ```
@@ -97,6 +95,14 @@ We can apply method for matching parts of string:
 
 # upcase function will be applied for words with length 5 or more
 'good morning my friends'.gsub(/\w{5,}/, &:upcase) #=> "good MORNING my FRIENDS"
+```
+
+## .include?
+
+```ruby
+'abc'.include?('ab') #=> true
+'abc'.include?('ba') #=> false
+'abc'.include?('') #=> true
 ```
 
 ## .empty?
