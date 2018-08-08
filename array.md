@@ -127,16 +127,10 @@ a.transpose
 # ]
 ```
 
-## .find (or .detect)
-
-These methods locate the first element matching a criteria
+## .cycle
 
 ```ruby
-[1, 4, 5].find { |x| x >= 4 }
-#=> 4
-
-['nik', 'jenny', 'kenny'].detect { |x| x.size > 3 }
-#=> 'jenny'
+[1, 2].cycle(3) { |x| puts x } #=> 1 2 1 2 1 2
 ```
 
 ## .inject
@@ -249,6 +243,18 @@ a.sort { |x, y| -(x <=> y) }
 
 ```ruby
 [2, 3].none? { |x| x < 0 } #=> true
+```
+
+## .find (or .detect)
+
+These methods locate the first element matching a criteria
+
+```ruby
+[1, 4, 5].find { |x| x >= 4 }
+#=> 4
+
+['nik', 'jenny', 'kenny'].detect { |x| x.size > 3 }
+#=> 'jenny'
 ```
 
 ## Non-destructive selection
