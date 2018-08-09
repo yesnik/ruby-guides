@@ -87,6 +87,14 @@ This method returns an Array of the first match [key, value] that satisfies the 
 {a: 11, b: 22, c: 33}.find { |k, v| v > 100 } #=> nil 
 ```
 
+## .dig
+
+```ruby
+a = {user: {id: 123}}
+a.dig(:user, :id) #=> 123
+a.dig(:user, :login) #=> nil
+```
+
 ## .group_by
 
 ```ruby
