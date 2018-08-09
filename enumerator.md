@@ -66,3 +66,16 @@ require 'prime'
 n = gets.to_i
 p Prime.each.lazy.select { |x| x.to_s == x.to_s.reverse }.first(n)
 ```
+
+## .each_cons
+
+```ruby
+(1..5).each_cons(3) { |x| p x }
+#=> [1, 2, 3]
+#=> [2, 3, 4]
+#=> [3, 4, 5]
+
+(1..3).each_cons(2) { |current, following| p "#{current} -> #{following}" }
+#=> "1 -> 2"
+#=> "2 -> 3"
+```
