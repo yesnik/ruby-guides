@@ -819,3 +819,44 @@ end
 
 Man.hi #=> ['Wow', 'Wow']
 ```
+
+## Private class methods
+
+If we use `class << self` we get expected behavior:
+
+```ruby
+class Dog
+  class << self
+    def hey
+      hi
+    end
+    
+    private
+    
+    def hi
+      'Hi'
+    end
+  end
+end
+
+Dog.hey #=> 'Hi'
+Dog.hi #=> NoMethodError (private method `hi' called for Dog:Class)
+```
+If we use `self.hi` we get strange behavior:
+
+```ruby
+class Cat
+  def self.hey
+    hi
+  end
+  
+  private
+  
+  def self.hi
+    'Hi'
+  end
+end
+
+Cat.hey #=> 'Hi'
+Cat.hi #=> 'Hi'  <-- no privacy here :)
+```
