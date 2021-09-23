@@ -1,11 +1,27 @@
 # Ruby Installation
 
+Official Docs: https://www.ruby-lang.org/en/documentation/installation/
+
 ## Ubuntu
 
 ### Apt
 
 ```
 sudo apt install ruby-full
+```
+
+### Source
+
+```
+wget http://ftp.ruby-lang.org/pub/ruby/3.0/ruby-3.0.2.tar.gz
+tar -xzvf ruby-3.0.2.tar.gz
+cd ruby-3.0.2/
+./configure
+make
+sudo make install
+
+# Close terminal, open it again
+ruby -v
 ```
 
 ### Snap
