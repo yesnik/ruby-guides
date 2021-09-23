@@ -2,6 +2,14 @@
 
 ## Ubuntu
 
+### Apt
+
+```
+sudo apt install ruby-full
+```
+
+### Snap
+
 Snap is a package manager developed by Canonical. It is available out-of-the-box on Ubuntu.
 
 ```bash
@@ -13,3 +21,5 @@ ruby -v
 gem -v
 # 3.2.22
 ```
+
+**Note** At Sep 2021 we have errors with ruby installed that way: `gem install eventmachine`. See issue: https://github.com/eventmachine/eventmachine/issues/881
