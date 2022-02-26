@@ -26,6 +26,13 @@ sudo make install
 ruby -v
 ```
 
+**Note** At February 2022 command `make` finished with error:
+
+```
+./tool/file2lastrev.rb:6:in `require': cannot load such file -- optparse (LoadError)
+	from ./tool/file2lastrev.rb:6:in `<main>'
+```
+
 ### Snap
 
 Snap is a package manager developed by Canonical. It is available out-of-the-box on Ubuntu.
