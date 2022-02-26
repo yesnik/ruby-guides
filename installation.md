@@ -12,10 +12,12 @@ sudo apt install ruby-full
 
 ### Source
 
+Get the link to [stable release](https://www.ruby-lang.org/en/downloads/)
+
 ```
-wget http://ftp.ruby-lang.org/pub/ruby/3.0/ruby-3.0.2.tar.gz
-tar -xzvf ruby-3.0.2.tar.gz
-cd ruby-3.0.2/
+wget https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.1.tar.gz
+tar -xzvf ruby-3.1.1.tar.gz
+cd ruby-3.1.1/
 ./configure
 make
 sudo make install
