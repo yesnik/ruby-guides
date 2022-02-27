@@ -38,8 +38,9 @@ To install Ruby and set the default version, we'll run the following commands:
 ```bash
 # Show available versions
 rbenv install -l
-rbenv install 3.0.3
-rbenv global 3.0.3
+
+rbenv install 3.1.1
+rbenv global 3.1.1
 ```
 
 Confirm the default Ruby version matches the version you just installed.
