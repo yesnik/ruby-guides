@@ -6,7 +6,9 @@ Official Docs: https://www.ruby-lang.org/en/documentation/installation/
 
 ### Rbenv
 
-This [instruction](https://gorails.com/setup/ubuntu/20.04) will help to install Ruby, Rails on Ubuntu 20:
+Instructions to install Ruby, Rails on:
+- [Ubuntu](https://gorails.com/setup/ubuntu/21.04)
+- [Fedora](https://developer.fedoraproject.org/tech/languages/ruby/ruby-installation.html)
 
 ```bash
 sudo apt install curl
@@ -15,7 +17,15 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 sudo apt-get update
-sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
+sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev \
+	libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn
+```
+
+For Fedora:
+
+```bash
+sudo dnf install git-core zlib zlib-devel gcc-c++ patch readline readline-devel \
+	libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
 ```
 
 Next we're going to be installing Ruby using a version manager called Rbenv.
