@@ -1,5 +1,17 @@
 # Operators
 
+## Safe Navigation Operator `&.`
+
+```ruby
+if account && account.owner && account.owner.address
+  # ...
+end
+
+if account&.owner&.address
+  # ...
+end
+```
+
 ## and
 
 ```ruby
